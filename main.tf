@@ -13,6 +13,7 @@ resource "aws_s3_bucket" "data" {
     name        = "Orbit Labs Storage"
     managedBy   = "Spacelift"
     environment = var.environment
+    cost-center = "engineering"
   }
 }
 
