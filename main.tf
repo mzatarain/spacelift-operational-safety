@@ -28,6 +28,17 @@ resource "aws_s3_bucket" "logs" {
   }
 }
 
+resource "aws_s3_bucket" "backups" {
+  bucket_prefix = "orbit-labs-backups-"
+
+  tags = {
+    name        = "Orbit Labs Backups"
+    managedBy   = "Spacelift"
+    environment = var.environment
+    cost-center = "engineering"
+  }
+}
+
 output "bucket_name" {
   value = aws_s3_bucket.data.id
 }
